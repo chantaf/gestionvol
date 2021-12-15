@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <title>Reservation</title>
+    <!-- <link rel="stylesheet" href="../css/main.css"> -->
+
+	<style>
+
+header {
+    background-image: url("https://votrevoyagedenoces.fr/wp-content/uploads/2021/05/avion-actu-vol.1511866.w740.jpg");
+    height: 100vh;
+     background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+.card-hover .card-img-top  {
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+
+svg{
+    fill: white;
+    width: 40px;
+    height: 40px;
+}
+.heart {
+    color: red;
+  }
+
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  font-family: Nunito, sans-serif;
+    color: white;
+}
+
+.formheader{
+  margin-top: -8vw;
+}
+
+.nav-link2{
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 23px;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  letter-spacing: 0.07em;
+  position: relative;
+  border-radius: 4px;
+}
+
+
+	</style>
+</head>
+
+ <!-- header star -->
+ <header class="vh-100">
+    <!-- navbar star -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-trp ">
+      <div class="container-xxl">
+        <a class="navbar-brand" href="index.html"
+          ><img src="https://i.imgur.com/RGaR6ct.png" style="width: 90px;" alt="logo"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNavAltMarkup" >
+          <div class="navbar-nav">
+            <a class="nav-link2" aria-current="page" href="">
+              Accueil</a>
+            <a class="nav-link2" href="">Voiture</a>
+            <a class="nav-link2" href="">Hotel</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container formheader" >
+      <div class="row">
+        <div class="col-lg-6 mt-5 pt-5">
+          <div class="banner-text pt-5 mt-5" id="divcontainer">
+            <h2>LE GRAND VOYAGE COMMENCE</h2>
+        
+            <div class="form-group row d-flex mb-3" >
+							<div class="col input-group-lg">
+								<h5 class="fw-bolder">Ville Depart</h5>
+								<input
+								class="form-control rounded"
+								name="villed"
+								id="villed"
+								type="text"
+								placeholder="Marrakech"
+								/>
+							</div>
+
+							<div class="col input-group-lg">
+								<h5 class="fw-bolder">Ville Arrivée</h5>
+								<input
+								class="form-control rounded"
+								name="villea"
+								id="villea"
+								type="text"
+								placeholder="Madrid"
+								/>
+							</div>
+			</div>
+			<div class="form-group row d-flex mb-3">
+							<div class="col input-group-lg">
+							<h5 class="fw-bolder">Date Depart</h5>
+							<input
+								class="form-control rounded"
+								name="dated"
+								type="date"
+								value="2021-12-31"
+								id="dated"
+							/>
+							</div>
+							<div class="col input-group-lg">
+							<h5 class="fw-bolder">Nombre Place</h5>
+							<input
+								class="form-control rounded"
+								name="nbrplace"
+								id="nbrplace"
+								type="number"
+								min="1"
+								placeholder="Min 1"
+							/>
+							</div>
+              </div>
+             
+              <div class="col-lg d-flex">
+                <div class="form-check me-5">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="radio"
+                    id="avecescale"
+                    checked/>
+
+                  <label class="form-check-label" for="exampleRadios1">
+                    <h5>Vols sans escale</h5>
+                  </label>
+
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="radio"
+                    id="sansescale"/>
+
+                  <label class="form-check-label" for="exampleRadios2">
+                    <h5>Vols avec escale</h5>
+                  </label>
+
+                </div>
+              </div>
+
+              <h3>EXTRAS</h3>
+              <div class="col-lg d-flex">
+               
+                <div class="form-check me-5">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="assurance"
+                    id="assurance"
+                    />
+
+                  <label class="form-check-label" for="exampleRadios1">
+                    <h5>Assurance</h5>
+                  </label>
+
+                </div>
+                <div class="form-check me-5">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="voiture"
+                    id="voiture"/>
+
+                  <label class="form-check-label" for="exampleRadios2">
+                    <h5>Voiture</h5>
+                  </label>
+
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="hotel"
+                    id="hotel"/>
+
+                  <label class="form-check-label" for="exampleRadios2">
+                    <h5>Hotel</h5>
+                  </label>
+
+                </div>
+              </div>
+
+
+              <button type="button" onclick="affichervols()" class="btn rounded btn-danger btn-lg">
+                RESERVE MAINTENANT
+              </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+
+
+<body>
+<!-- ======================================================= -->
+
+<section class="featured pb-5">
+  <div class="container">
+    <div class="container pb-5">
+      <h2 class="text-center mt-5 text-secondary fw-normal">
+        Principaux itinéraires de vol...<span class="text-primary fw-bolder"
+          >Aux États-Unis</span
+        >
+      </h2>
+      <p class="text-center mb-5 text-secondary fw-normal">
+        Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum has
+        been standard.......
+      </p>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col-md-3">
+          <div class="card card-hover shadow-sm border-0 rounded">
+            <div class="card-img-top rounded">
+              <img
+                src="http://themes.pixelstrap.com/rica/assets/images/flights/destination/4.jpg"
+                class="img img-fluid"
+                alt="..."
+              />
+            </div>
+    
+            <div class="card-body">
+              <div class="text-content d-flex">
+                <h5 class="text-secondary text-dark fw-bolder">
+                    Pays de france
+                </h5>
+                <p class="ms-4">
+                  Arrivée : 20:30</p>
+              </div>
+              <div class="text-content d-flex">
+                <h6 class="text-secondary text-danger fw-bolder">
+                  Départ : 14:20
+                </h6>
+                <div class="rating ms-4">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card card-hover shadow-sm border-0 rounded">
+            <div class="card-img-top rounded">
+              <img
+                src="http://themes.pixelstrap.com/rica/assets/images/flights/destination/5.jpg"
+                class="img img-fluid"
+                alt="..."
+              />
+            </div>
+            <div class="card-body">
+              <div class="text-content d-flex">
+                <h5 class="text-secondary text-dark fw-bolder">
+                  Pays de france
+                </h5>
+                <p class="ms-4">Arrivée : 20:30</p>
+              </div>
+              <div class="text-content d-flex">
+                <h6 class="text-secondary text-danger fw-bolder">
+                  Départ : 14:20
+                </h6>
+                <div class="rating ms-4">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-md-3">
+          <div class="card card-hover shadow-sm border-0 rounded">
+            <div class="card-img-top rounded">
+              <img
+                src="http://themes.pixelstrap.com/rica/assets/images/flights/destination/6.jpg"
+                class="img img-fluid"
+                alt="..."
+              />
+            </div>
+            <div class="card-body">
+              <div class="text-content d-flex">
+                <h5 class="text-secondary text-dark fw-bolder">
+                  Pays de france
+                </h5>
+                <p class="ms-4">Arrivée : 20:30</p>
+              </div>
+              <div class="text-content d-flex">
+                <h6 class="text-secondary text-danger fw-bolder">
+                  Départ : 14:20
+                </h6>
+                <div class="rating ms-4">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card card-hover shadow-sm border-0 rounded">
+            <div class="card-img-top rounded">
+              <img
+                src="http://themes.pixelstrap.com/rica/assets/images/flights/destination/7.jpg"
+                class="img img-fluid"
+                alt="..."
+              />
+            </div>
+            <div class="card-body">
+              <div class="text-content d-flex">
+                <h5 class="text-secondary text-dark fw-bolder">
+                  Pays de france
+                </h5>
+                <p class="ms-4">Arrivée : 20:30</p>
+              </div>
+              <div class="text-content d-flex">
+                <h6 class="text-secondary text-danger fw-bolder">
+                  Départ : 14:20
+                </h6>
+                <div class="rating ms-4">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" style="background-color: #09A5D8;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="box d-flex align-items-center">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 476 476"
+              style="enable-background: new 0 0 476 476"
+              xml:space="preserve"
+            >
+              <g>
+                <path
+                  d="M400.85,181v-18.3c0-43.8-15.5-84.5-43.6-114.7c-28.8-31-68.4-48-111.6-48h-15.1c-43.2,0-82.8,17-111.6,48
+  c-28.1,30.2-43.6,70.9-43.6,114.7V181c-34.1,2.3-61.2,30.7-61.2,65.4V275c0,36.1,29.4,65.5,65.5,65.5h36.9c6.6,0,12-5.4,12-12
+  V192.8c0-6.6-5.4-12-12-12h-17.2v-18.1c0-79.1,56.4-138.7,131.1-138.7h15.1c74.8,0,131.1,59.6,131.1,138.7v18.1h-17.2
+  c-6.6,0-12,5.4-12,12v135.6c0,6.6,5.4,12,12,12h16.8c-4.9,62.6-48,77.1-68,80.4c-5.5-16.9-21.4-29.1-40.1-29.1h-30
+  c-23.2,0-42.1,18.9-42.1,42.1s18.9,42.2,42.1,42.2h30.1c19.4,0,35.7-13.2,40.6-31c9.8-1.4,25.3-4.9,40.7-13.9
+  c21.7-12.7,47.4-38.6,50.8-90.8c34.3-2.1,61.5-30.6,61.5-65.4v-28.6C461.95,211.7,434.95,183.2,400.85,181z M104.75,316.4h-24.9
+  c-22.9,0-41.5-18.6-41.5-41.5v-28.6c0-22.9,18.6-41.5,41.5-41.5h24.9V316.4z M268.25,452h-30.1c-10,0-18.1-8.1-18.1-18.1
+  s8.1-18.1,18.1-18.1h30.1c10,0,18.1,8.1,18.1,18.1S278.25,452,268.25,452z M437.95,274.9c0,22.9-18.6,41.5-41.5,41.5h-24.9V204.8
+  h24.9c22.9,0,41.5,18.6,41.5,41.5V274.9z"
+                ></path>
+              </g>
+            </svg>
+            <div class="box-content ms-3 pt-3">
+              <div>
+                <h5 class="fw-bold">Appelez-nous</h5>
+                <p class="text-light">+91 123-456-7890</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="box d-flex align-items-center">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 486.025 486.025"
+              style="enable-background: new 0 0 486.025 486.025"
+              xml:space="preserve"
+            >
+              <g>
+                <g>
+                  <path
+                    d="M420.725,85.413c-42.1-42.1-98.1-65.3-157.6-65.3c-60.6,0-117.3,23.9-159.6,67.3c-4.6,4.7-4.5,12.3,0.2,17
+  c4.7,4.6,12.3,4.5,17-0.2c37.8-38.7,88.3-60,142.4-60c109.7-0.1,198.9,89.1,198.9,198.8s-89.2,198.9-198.9,198.9
+  s-198.9-89.2-198.9-198.9v-2.5l19.8,19.8c2.3,2.3,5.4,3.5,8.5,3.5s6.1-1.2,8.5-3.5c4.7-4.7,4.7-12.3,0-17l-40.2-40.3
+  c-4.7-4.7-12.3-4.7-17,0l-40.3,40.3c-4.7,4.7-4.7,12.3,0,17s12.3,4.7,17,0l19.8-19.8v2.5c0,59.5,23.2,115.5,65.3,157.6
+  s98.1,65.3,157.6,65.3s115.5-23.2,157.6-65.3s65.2-98.1,65.2-157.6S462.825,127.513,420.725,85.413z"
+                  ></path>
+                  <path
+                    d="M326.925,161.913l-147.4,147.3c-4.7,4.7-4.7,12.3,0,17c2.3,2.3,5.4,3.5,8.5,3.5s6.1-1.2,8.5-3.5l147.4-147.4
+  c4.7-4.7,4.7-12.3,0-17C339.225,157.213,331.625,157.213,326.925,161.913z"
+                  ></path>
+                  <path
+                    d="M288.325,261.113c-16.7,16.7-16.7,44,0,60.7c8.1,8.1,18.9,12.6,30.4,12.6s22.3-4.5,30.4-12.6c16.7-16.7,16.7-44,0-60.7
+  c-8.1-8.1-18.9-12.6-30.4-12.6C307.225,248.513,296.525,253.013,288.325,261.113z M332.125,304.913c-3.6,3.6-8.3,5.5-13.4,5.5
+  s-9.8-2-13.4-5.5c-7.4-7.4-7.4-19.4,0-26.8c3.6-3.6,8.3-5.5,13.4-5.5s9.8,2,13.4,5.5
+  C339.525,285.513,339.525,297.513,332.125,304.913z"
+                  ></path>
+                  <path
+                    d="M207.925,151.213c-11.5,0-22.3,4.5-30.4,12.6s-12.6,18.9-12.6,30.4s4.5,22.3,12.6,30.4s18.9,12.6,30.4,12.6
+  s22.3-4.5,30.4-12.6c8.1-8.1,12.6-18.9,12.6-30.4s-4.5-22.3-12.6-30.4C230.125,155.713,219.425,151.213,207.925,151.213z
+  M221.325,207.613c-3.6,3.6-8.3,5.5-13.4,5.5s-9.8-2-13.4-5.5c-3.6-3.6-5.5-8.3-5.5-13.4c0-5.1,2-9.8,5.5-13.4
+  c3.6-3.6,8.3-5.5,13.4-5.5s9.8,2,13.4,5.5c3.6,3.6,5.5,8.3,5.5,13.4C226.825,199.213,224.925,204.013,221.325,207.613z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <div class="box-content ms-3 pt-3">
+              <div>
+                <h5 class="fw-bold">SPECIAL DISCOUNT</h5>
+                <p class="text-light">Première réservation à 25 % de réduction</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="box d-flex align-items-center">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 483.3 483.3"
+              style="enable-background: new 0 0 483.3 483.3"
+              xml:space="preserve"
+            >
+              <g>
+                <g>
+                  <path
+                    d="M424.3,57.75H59.1c-32.6,0-59.1,26.5-59.1,59.1v249.6c0,32.6,26.5,59.1,59.1,59.1h365.1c32.6,0,59.1-26.5,59.1-59.1
+  v-249.5C483.4,84.35,456.9,57.75,424.3,57.75z M456.4,366.45c0,17.7-14.4,32.1-32.1,32.1H59.1c-17.7,0-32.1-14.4-32.1-32.1v-249.5
+  c0-17.7,14.4-32.1,32.1-32.1h365.1c17.7,0,32.1,14.4,32.1,32.1v249.5H456.4z"
+                  ></path>
+                  <path
+                    d="M304.8,238.55l118.2-106c5.5-5,6-13.5,1-19.1c-5-5.5-13.5-6-19.1-1l-163,146.3l-31.8-28.4c-0.1-0.1-0.2-0.2-0.2-0.3
+  c-0.7-0.7-1.4-1.3-2.2-1.9L78.3,112.35c-5.6-5-14.1-4.5-19.1,1.1c-5,5.6-4.5,14.1,1.1,19.1l119.6,106.9L60.8,350.95
+  c-5.4,5.1-5.7,13.6-0.6,19.1c2.7,2.8,6.3,4.3,9.9,4.3c3.3,0,6.6-1.2,9.2-3.6l120.9-113.1l32.8,29.3c2.6,2.3,5.8,3.4,9,3.4
+  c3.2,0,6.5-1.2,9-3.5l33.7-30.2l120.2,114.2c2.6,2.5,6,3.7,9.3,3.7c3.6,0,7.1-1.4,9.8-4.2c5.1-5.4,4.9-14-0.5-19.1L304.8,238.55z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <div class="box-content ms-3 pt-3">
+              <div>
+                <h5 class="fw-bold">BULLETIN</h5>
+                <p class="text-light">Je l'ai brouillé pour le faire.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 d-flex align-items-center">
+
+            <div class="input-group m-3">
+                <input
+                  type="text"
+                  class="form-control rounded-start"
+                  placeholder="Enter your email"
+                  aria-label="Recipient's username"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-subscribe btn-danger rounded-end"
+                    type="button"
+                    id="button-addon"
+                  >
+                  S'abonner
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="bg-dark">
+        <h4 class="p-3 m-0 text-center">
+          Fabriqué avec <span class="heart">&#10084;</span> Par **************
+        </h4>
+      </footer>
+
+
+	  <script>
+		let arrayN = <%- JSON.stringify(dataArray)%>;
+		// console.log(arrayN);
+		function affichervols(){
+			let villedepart = document.getElementById("villed").value;
+			let villearrivee = document.getElementById("villea").value;
+			let datedepart = document.getElementById("dated").value;
+			let nombreplace = document.getElementById("nbrplace").value;
+      let escale=document.getElementById("avecescale");
+
+      let assurance=document.getElementById("assurance");
+      let voiture=document.getElementById("voiture");
+      let hotel=document.getElementById("hotel");
+
+      let asuur="non";
+      let voitu="non";
+      let hot="non";
+
+
+      if(assurance.checked==true){
+        asuur="oui";
+      }
+
+      if(voiture.checked==true){
+        voitu="oui";
+      }
+
+      if(hotel.checked==true){
+         hot="oui";
+      }
+  
+      if(villedepart=="" || villearrivee=="" || datedepart=="" || nombreplace==""){
+        alert("tout les infos obligatoire");
+      }else{
+ 
+      
+			let table=document.getElementById("divcontainer");
+
+
+			table.innerHTML=`
+      <table class="table table-striped  position-absolute top-30 start-0" id="idtable">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Ville Depart</th>
+                                    <th>Ville Arrivee</th>
+                                    <th>Heurs Depart</th>
+                                    <th>Heurs Arrivee</th>
+                                    <th>Date Depart</th>
+                                    <th>Date Arrivee</th>
+									<th>Prix</th>
+									<th>Escale</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+							<tbody id="tbody" >
+							</tbody>
+                        </table>
+							`;
+
+
+    if(escale.checked==true){
+			arrayN.forEach(element => {
+          // console.log(element.capacite);  
+          // console.log(villearrivee);  
+				if(element.villed == villedepart && element.villea==villearrivee && element.dated==datedepart && element.capacite >= nombreplace && element.escale=="non"){
+					document.getElementById("tbody").innerHTML += `
+					
+                           
+                                <tr>
+										<td>${element.villed}</td>
+										<td>${element.villea}</td>
+										<td>${element.heured}</td>
+										<td>${element.heurea}</td>
+										<td>${element.dated}</td>
+										<td>${element.datea}</td>
+										<td>${element.prix} DH</td>
+										<td>${element.escale}</td>
+										<td class="d-flex" > <button  class="btnreserver  btn btn-danger text-white btn-sm" assurance="${asuur}" hotel="${hot}" voiture="${voitu}"  nbr-place="${nombreplace}" data-type="${element.idvol}">Reserver</button>
+										</td>
+          					  </tr> 
+					
+					`;
+
+					res();
+				 }
+
+			});
+
+    }else{
+      arrayN.forEach(element => {
+				if(element.villed == villedepart && element.villea==villearrivee && element.dated==datedepart && element.capacite >= nombreplace && element.escale!="non"){
+					document.getElementById("tbody").innerHTML += `
+					
+                           
+                                <tr>
+										<td>${element.villed}</td>
+										<td>${element.villea}</td>
+										<td>${element.heured}</td>
+										<td>${element.heurea}</td>
+										<td>${element.dated}</td>
+										<td>${element.datea}</td>
+										<td>${element.prix} DH</td>
+										<td>${element.escale}</td>
+										<td class="d-flex" > <button  class="btnreserver  btn btn-danger text-white btn-sm" nbr-place="${nombreplace}" data-type="${element.idvol}">Reserver</button>
+										</td>
+          					  </tr> 
+					
+					`;
+
+					res();
+				 }
+				
+			});
+
+    }
+
+    }
+		}
+
+	
+	const res = () =>{
+    document.querySelectorAll('.btnreserver').forEach(Element =>{
+            Element.addEventListener('click', async ()=>{
+                    let idvol=Element.getAttribute('data-type');
+                    let nombreplace=Element.getAttribute('nbr-place');
+                    let voiture=Element.getAttribute('voiture');
+                    let hotel=Element.getAttribute('hotel');
+                    let assurance=Element.getAttribute('assurance');
+
+			let contenair=document.getElementById("divcontainer");
+
+			contenair.innerHTML=`
+					  <h2>COMPLETE RESERVATION</h2>
+            
+            <!-- from -->
+             <form action="/reservation" method="POST"> 
+						<div class="form-group row d-flex mb-3" >
+										<div class="col input-group-lg">
+											<h5 class="fw-bolder">Nom</h5>
+											<input
+											class="form-control rounded"
+											name="nom"
+											id="nom"
+											type="text"
+											placeholder="Boumlik"
+											/>
+										</div>
+
+										<div class="col input-group-lg">
+											<h5 class="fw-bolder">Prenom</h5>
+											<input
+											class="form-control rounded"
+											name="prenom"
+											id="prenom"
+											type="text"
+											placeholder="Mohammed"
+											/>
+										</div>
+						<div class="form-group row d-flex mb-3" >
+										<div class="col input-group-lg">
+										<h5 class="fw-bolder">N Passport</h5>
+										<input
+											class="form-control rounded"
+											name="passport"
+											id="passport"
+											type="text"
+											placeholder="AH2243558"
+										
+										/>
+										</div>
+						</div>
+						</div>
+						<div class="form-group row d-flex mb-3">
+										<div class="col input-group-lg">
+										<h5 class="fw-bolder">Email</h5>
+										<input
+											class="form-control rounded"
+											name="email"
+											type="email"
+											id="email"
+											placeholder="m.b@gmail.com"
+										/>
+										</div>
+										<div class="col input-group-lg">
+										<h5 class="fw-bolder">Tel</h5>
+										<input
+											class="form-control rounded"
+											name="tel"
+											id="tel"
+											type="text"
+											placeholder="+2126 00998877"
+										/>
+										</div>
+
+
+						</div>
+						
+						
+						<!-- reservation button  -->
+						<input name="idvol" type="hidden" id="idvol" value="${idvol}"/>
+            <input name="nbrplace" type="hidden" id="nbrplace" value="${nombreplace}"/>
+            <input name="voiture" type="hidden" id="voiture" value="${voiture}"/>
+            <input name="hotel" type="hidden" id="hotel" value="${hotel}"/>
+            <input name="assurance" type="hidden" id="assurance" value="${assurance}"/>
+						<button type="submit"  class="btn rounded btn-danger btn-lg">
+							VALIDER
+						</button>
+			</form>
+			  `
+            })
+        });
+}
+
+	</script>
+
+</body>
+</html>
+
+
