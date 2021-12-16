@@ -1,21 +1,17 @@
 const http = require('http')
-const { getVols,ajouterreservation,getreservation} = require('./controller/volsControlller.js')
+const { getVols,ajouterreservation,getticket,mail} = require('./controller/volsControlller.js')
 const url = require("url");
 const ejs = require("ejs");
 const fs = require('fs');
 const qs = require('querystring');
-const nodemailer = require('nodemailer');
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'testcoding975@gmail.com',
-    pass: 'testCoding1998'
-  }
-});
+
+
 
 
 const server = http.createServer(async (req, res) => {
+  let arrayres =await getticket();
+
     let parsedURL = url.parse(req.url, true);
     let path = parsedURL.path.replace(/^\/+|\/+$/g, "");
   
@@ -29,23 +25,7 @@ const server = http.createServer(async (req, res) => {
         req.on('end', function() {
           var post = qs.parse(data);
          ajouterreservation(post.idvol,post.nom,post.prenom,post.passport,post.email,post.tel,post.nbrplace,post.voiture,post.hotel,post.assurance);
-          
-         const mailOptions = {
-          from: 'testcoding975@gmail.com',
-          to: post.email,
-          subject: 'reservation vol',
-          text: 'page pdf!'
-        };
-        
-
-        transporter.sendMail(mailOptions, function(error, info){
-          if (error) {
-            console.log(error);
-          } else {
-            console.log('Email sent: ');
-          }
-        });
-    
+      
         path = "paiement.ejs";
         });
 
@@ -54,15 +34,15 @@ const server = http.createServer(async (req, res) => {
     }else if(path=="paiement"){
       path = "paiement.ejs";
 
+
     }else if(path=="ticket"){
-      
       path = "ticket.ejs";
+      let html =  await ejs.render(fs.readFileSync(__dirname + "/view/ticket.ejs",'utf-8'),{res:arrayres});
+      await mail(html, 'badr.chantaf@gmail.com')
      
     }
   
     let array =await getVols();
-    let arrayreservation=await getreservation();
-      // console.log(arrayreservation)
 
     let file = __dirname + "/view/" + path;
     fs.readFile(file,'utf-8',function(err, content){
@@ -72,7 +52,7 @@ const server = http.createServer(async (req, res) => {
             res.end();
         } else {
             res.setHeader("Content-Type", "text/html");
-            let dataRender = ejs.render(content , {dataArray: array,reservation: arrayreservation});
+            let dataRender = ejs.render(content , {dataArray: array,res:arrayres});
             res.end(dataRender);
         }
     });

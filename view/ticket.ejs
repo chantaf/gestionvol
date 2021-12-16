@@ -25,8 +25,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 700px;
+  width: 1000px;
   margin: 20px auto;
+  position: absolute;
+  top: 210px;
+  left :175px;
 }
 .ticket .stub,
 .ticket .check {
@@ -83,8 +86,9 @@
 }
 .stub .number {
   position: absolute;
-  left: 40px;
-  font-size: 150px;
+  left: 110px;
+  top:145px;
+  font-size: 40px;
 }
 .stub .invite {
   position: absolute;
@@ -104,7 +108,7 @@
 .check {
   background: #fff;
   height: 250px;
-  width: 450px;
+  width:  575px;
   padding: 40px;
   position: relative;
 }
@@ -156,7 +160,7 @@
   content: '';
   background: #ef5658;
   display: block;
-  width: 40px;
+  width: 80px;
   height: 3px;
   margin-bottom: 5px;
 }
@@ -165,72 +169,106 @@
   text-transform: uppercase;
 }
 
+.nbrplace{
+position: absolute;
+top:115px;
+left:60px;
+}
+
+#idreservation{
+  color: #fff;
+}
+
+.titre{
+  position: absolute;
+  top:120;
+  left: 210px;
+  color:#fff;
+  font-size: 100px;
+
+}
 </style>
 </head>
 <body>
-
+  <% for(let i=0; i<res.length ; i++){ %>
     <div class="ticket">
+     
         <div class="stub">
           <div class="top">
             <span class="admit">Vols</span>
             <span class="line"></span>
             <span class="num">
               Vols Num :
-              <span id="idreservation"></span>
+              <span id="idreservation"><%= res[i].idreservation %></span>
             </span>
           </div>
 
-          <div class="number" id="nombreplace"></div>
-          <div class="invite" id="escale">
-            escale :
-          </div>
+          <div class="title nbrplace"><b>Nombre Place</b></div>
+          <div class="number" id="nombreplace"><%= res[i].nombreplace %></div>
         </div>
         <div class="check">
           <div >
-            <span>nom :</span>
-            <span>prenom :</span>
-            <span>num passport :</span>
+            <div class="info">
+              <section>
+                <div class="title"><b>Nom</b></div>
+                <div id="nom"><%= res[i].nom %></div>
+              </section>
+              <section>
+                  <div class="title"><b>Prenom</b></div>
+                  <div id="prenom"><%= res[i].prenom %></div>
+                </section>
+              <section>
+                <div class="title"><b>Numpassport</b></div>
+                <div id="passport"><%= res[i].numpassport %></div>
+              </section>
+              <section>
+                <div class="title"><b>Email</b></div>
+                <div id="email"><%= res[i].email %></div>
+              </section>
+            </div>
+        
           </div>
-          <!-- <div class="number">#10</div> -->
+         
           <div class="info">
             <section>
-              <div class="title">Date Depart</div>
-              <div id="dated"></div>
+              <div class="title"><b>Date Depart </b></div>
+              <div id="dated"><%= res[i].dated %></div>
             </section>
             <section>
-                <div class="title">Date Arrivée</div>
-                <div id="datea"></div>
+                <div class="title"><b>Date Arrivée</b></div>
+                <div id="datea"><%= res[i].datea %></div>
               </section>
             <section>
-              <div class="title">Ville Depart</div>
-              <div id="villed"></div>
+              <div class="title"><b>Ville Depart</b></div>
+              <div id="villed"><%= res[i].villed %></div>
             </section>
             <section>
-              <div class="title">Ville Arrivée</div>
-              <div id="villea"></div>
+              <div class="title"><b>Ville Arrivée</b></div>
+              <div id="villea"><%= res[i].villea %></div>
+            </section>
+          </div>
+
+          <div class="info">
+            <section>
+              <div class="title"><b>Escale</b></div>
+              <div id="escale"><%= res[i].escale %></div>
+            </section>
+            <section>
+              <div class="title"><b>Hotel</b></div>
+              <div id="hotel"><%= res[i].hotel %></div>
+            </section>
+            <section>
+                <div class="title"><b>Voiture</b></div>
+                <div id="voiture"><%= res[i].voiture %></div>
+              </section>
+            <section>
+              <div class="title"><b>Assurance</b></div>
+              <div id="assurance"><%= res[i].assurance %></div>
             </section>
           </div>
         </div>
+       
       </div>
-
-    <script>
-
-        		let arrayN = <%- JSON.stringify(reservation)%>;
-                
-                arrayN.forEach(element => {
-                   
-                    document.getElementById("idreservation").innerHTML=element.idreservation;
-                    document.getElementById("nombreplace").innerHTML=element.nombreplace;
-                    document.getElementById("dated").innerHTML=element.dated;
-                    document.getElementById("datea").innerHTML=element.datea;
-                    document.getElementById("villed").innerHTML=element.villed;
-                    document.getElementById("villea").innerHTML=element.villea;
-                    document.getElementById("escale").innerHTML+=element.escale;
-                    
-                });
-
-
-
-    </script>
+      <% }%>
 </body>
 </html>
